@@ -19,8 +19,21 @@ function distanceTravelledInFeet(startBlock, destinationBlock){
     return blocksTravelled * feetPerBlock;
 }
 
-// function calculatesFarePrice(startBlock, destinationBlock){
+function calculatesFarePrice(startBlock, destinationBlock){
     
-//     let fareCalculation;
-//     fareCalculation = distanceTravelledInFeet(startBlock, destinationBlock)
-// }
+    let fareCalculation;
+    if (distanceTravelledInFeet(startBlock, destinationBlock) < 2500) {
+        if (distanceTravelledInFeet(startBlock, destinationBlock) <= 400){
+        fareCalculation = 0;
+        }
+        else if ((distanceTravelledInFeet(startBlock, destinationBlock) > 400) && (distanceTravelledInFeet(startBlock, destinationBlock) <= 2000)) {
+            fareCalculation = (distanceTravelledInFeet(startBlock, destinationBlock) - 400) * .02;
+        }
+        else {fareCalculation = 25};
+    }
+    
+    else {fareCalculation = 'cannot travel that far'};
+
+    return fareCalculation;
+
+}
